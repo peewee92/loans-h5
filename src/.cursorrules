@@ -1,0 +1,16 @@
+# 项目背景
+这是一个急于vue3 + nutui (https://nutui.jd.com/h5/vue/4x/#/zh-CN/component/form) 开发的移动端H5 web应用程序
+
+# 编码规范
+- 
+- 
+
+# 首先的库
+- 表单等其他ui组件尽量使用nutui组件库中的组件
+- 使用scss进行样式编写，大小直接写px
+- 使用pinia进行状态管理
+- 使用vue-router进行路由管理
+- 使用axios进行网络请求
+- 使用dayjs进行时间处理
+- 使用mitt进行事件总线管理
+- 使用pinia-plugin-persistedstate进行状态持久化
