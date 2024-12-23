@@ -103,17 +103,6 @@
       </div>
     </nut-cell-group>
 
-    <!-- <nut-cell-group >
-      <nut-form ref="ruleForm" :model-value="formData" style="text-align: center;">
-        <nut-form>
-          <nut-form-item label="手机号码" :error="phoneError" prop="phoneNumber">
-            <nut-input v-model="formData.phoneNumber" placeholder="凭手机号注册申请（已加密）" />
-          </nut-form-item>
-        </nut-form>
-        <nut-button type="info" size="large" @click="validatePhone">立即申请</nut-button>
-      </nut-form>
-    </nut-cell-group> -->
-
     <nut-popup ref="repaymentPeriodPopup" v-model:visible="repaymentPeriodShow" position="bottom">
       <nut-picker
         v-model="formData.repaymentPeriod"
@@ -188,7 +177,7 @@
 <script lang="ts" setup>
   import { ref, reactive, computed } from 'vue';
   import { loanPurposeOptions, repaymentOptions } from '@/enums';
-  import { mockGetVerificationCode, mockValidateCode, mockSubmitForm } from '@/api';
+  import { mockGetVerificationCode, mockSubmitForm } from '@/api';
   import { Success } from '@nutui/icons-vue';
   import { showToast } from '@nutui/nutui';
   const formData = reactive({
@@ -226,17 +215,6 @@
         resolve('success');
       }
     });
-  };
-
-  const validatePhone = () => {
-    const phoneRegex = /^1[3-9]\d{9}$/; // 中国大陆手机号格式
-    if (!phoneRegex.test(phoneNumber.value)) {
-      phoneError.value = '请输入正确手机号';
-    } else {
-      phoneError.value = '';
-      showPopup.value = true;
-      startCountdown();
-    }
   };
 
   const privatePhoneNumber = computed(() => {

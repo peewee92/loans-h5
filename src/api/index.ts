@@ -9,7 +9,14 @@ export function loginPassword() {
     data: { name: '123' },
   });
 }
-
+// 申请获取验证码，传入 phoneNumber
+// 返回{
+//   code: 200,
+//   message: 'ok',
+//   data: {
+//     verificationCode: '123456'
+//   }, // 返回验证码
+// }
 // Mock API for getting verification code
 export const mockGetVerificationCode = (phoneNumber) => {
   return http.get(`${baseUrl}/api/getVerificationCode`, {
@@ -17,17 +24,16 @@ export const mockGetVerificationCode = (phoneNumber) => {
   });
 };
 
-// Mock API for validating verification code
-export const mockValidateCode = (phoneNumber, verificationCode) => {
-  return http.post(`${baseUrl}/api/validateCode`, {
-    phoneNumber, // 传入 phoneNumber
-    verificationCode, // 传入 verificationCode
-  });
-};
-
 // Mock API for submitting the form
 // formData: { loanAmount // 借款数量 ,way: 还款方式. 还款期数 periods, 还款计划plan,
 //  利率rate，用途 purpose，手机号 phoneNumber; 验证码 verificationCode,  }
+// 返回{
+//   "code": 200,
+//   "message": "ok",
+//   "data": {
+//     "id": ""
+//   }
+// }
 interface formData {
   loanAmount: number;
   way: string;
